@@ -1,0 +1,93 @@
+<head>
+    <title>Quark</title>
+    </head>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Oxygen:400,700');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+    
+    *{
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    
+    body{
+        background-color: rgb(24,27,31);
+        color: white;
+    }
+    
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+      }
+      input, select {
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 50%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        outline: none;
+      }
+        
+      button, input[type=submit] {
+        background-color: #007bff; 
+        color: #ffffff;
+        padding: 11px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+    
+      button:hover {
+        background-color: #0069d9;
+      }
+      
+      h1{
+        font-family: Comfortaa;
+      }
+      p, a {
+        font-size: small;
+        cursor: pointer;
+      }
+      a{
+        text-decoration: underline;
+        color: white;
+      }
+    </style>
+    
+    <div>
+        <h1 style="font-size: 30px;">quark Credits</h1>
+      <h2>Fonts</h2>
+      <p><a href="https://fonts.google.com/specimen/Oxygen">Oxygen</a> by <a href="https://fonts.google.com/specimen/Oxygen">Vernon Adams</a></p>
+      <p><a href="https://fonts.google.com/specimen/Comfortaa">Comfortaa</a> by <a href="https://fonts.google.com/specimen/Comfortaa">Johan Aakerlund</a></p>
+      <h2>Technologies</h2>
+      <p><a href="https://electronjs.org/">Electron.js</a>
+        <p><a href="https://npmjs.com/electron-prompt">electron-prompt</a>
+          <p><a href="https://npmjs.com/menubar.js">menubar.js</a></p>
+
+    </div>
+    
+    <script>
+    const search = () =>{
+        const q = document.getElementById('search').value;
+        try{
+            const url = new URL(q);
+            location = url;
+        }catch{
+            location = `https://google.com/search?q=${q}`;
+        }
+    }
+      document.getElementById("search").addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        search();
+        }
+      });
+    </script>

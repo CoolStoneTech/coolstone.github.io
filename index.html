@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoolStone Technologies</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap">
+    <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png">
+<meta name="description" content="We make various awesome projects! Check out some of our projects here!">
+<meta name="keywords" content="coolstone, tech, js, developers, npm">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+    <style>
+        * {
+            font-family: 'Oxygen', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            background-color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: small;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            margin: 0;
+        }
+
+        .links {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .button {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #menu-container {
+            display: flex;
+            height: 80%;
+        }
+
+        .menu-buttons {
+            width: 20%;
+            display: grid;
+            row-gap: -10px;
+        }
+
+        .menu-buttons button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #content-container {
+            width: 80%;
+            color: white;
+            display: grid;
+            row-gap: -10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #f {
+            text-align: center;
+            color: white;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        #f a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        #url{
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            width: 40%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        a{
+            color: white;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .logo img {
+                display: none;
+            }
+
+            #con{
+                display: none;
+            }
+
+            #s{
+                display: none;
+            }
+
+            #sep{
+                display: none;
+            }
+
+            .logo h1 {
+                margin: 0;
+            }
+
+            #menu-container {
+                flex-direction: column;
+            }
+
+            .menu-buttons {
+                width: 100%;
+                display: flex;
+                overflow: scroll;
+            }
+
+            .menu-buttons button {
+                width: fit-content;
+                padding: 10px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+
+            #content-container {
+                width: 100%;
+                color: white;
+                display: grid;
+                row-gap: -10px;
+                text-align: center;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #f {
+                text-align: center;
+                color: white;
+                background-color: #333;
+                padding: 10px;
+            }
+
+            #f a {
+                text-decoration: underline;
+                color: white;
+            }
+
+            #url{
+                padding: 10px;
+                background-color: #4CAF50;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                width: 40%;
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+
+            a{
+                color: white;
+            }
+
+            #content-container {
+                display: grid;
+                text-align: center;
+                align-items: center;
+            }
+            #srv{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img id="logo" src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" alt="Logo">
+            <h1 id="top">CoolStone Technologies</h1>
+        </div>
+        <div class="links">
+            <a id="app" href="?type=app">Apps</a>
+            <a id="cli" href="?type=cli">CLI Tools</a>
+            <a id="npm" href="?type=npm">npm</a>
+            <a id="website" href="?type=website">Websites</a>
+            <a id="other" href="?type=other">Other</a>
+            <label id="sep">|</label>
+            <a id="con" href="/contact">Contact</a>
+            <a id="s" href="/search">Search</a>
+        </div>
+    </header>
+<br>
+    <div id="menu-container" style="width: 100%;">
+        <div class="menu-buttons" style="overflow: scroll;" id="services">
+            <button style="font-size: large;" id="srv">Apps</button>
+        </div>
+        <div id="content-container" style="height: 100%;width: 100%;">
+           <div id="content" style="width: 100% !important;">
+            <h2 id="nm"></h2>
+            <p style="margin-top: 13px;" id="ab">
+          Select a service <label id="d"></label> or <a class="nothing" style="text-decoration: underline;" href="/search/">search</a> for a service. <br><br> Have a question? <a class="nothing" style="text-decoration: underline;" href="/contact">Contact us</a>! <a rel="me" style="text-decoration: underline;display: none;" class="nothing" href="https://mastodon.social/@coolstone">Mastodon</a>
+            </p>
+            <button style="display: none;" id="url" class="button">Visit</button>
+           </div>
+        </div>
+    </div>
+
+    <div id="f"><Br><Br><br>
+        <a target="_blank" style="text-decoration: underline;color: white;" href="https://terms.coolstone.dev">Terms of Use</a> |
+        <a target="_blank" style="text-decoration: underline;color: white;" href="https://terms.coolstone.dev/privacy">Privacy Policy</a> |
+        <a target="_blank" style="text-decoration: underline;color: white;" href="/contact">Contact</a> |
+        <a target="_blank" style="text-decoration: underline;color: white;" href="/search">Search</a>
+        <br><br>
+        <a target="_blank" href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" title="DMCA.com Protection Status" class="dmca-badge">
+            <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" alt="DMCA.com Protection Status" />
+        </a>
+    </div>
+
+    <script>
+
+const p = new URLSearchParams(location.search)
+
+        window.onresize = function(event) {
+            if (window.innerWidth < 800) {
+                document.getElementById("top").innerHTML = "CoolStone";
+                document.getElementById('d').innerHTML = "above";
+            } else {
+                document.getElementById("top").innerHTML = "CoolStone Technologies";
+                document.getElementById('d').innerHTML = "on the left";
+            }
+        };
+
+        if (window.innerWidth < 800) {
+            document.getElementById("logo").style.display = "none";
+            document.getElementById("top").innerHTML = "CoolStone";
+            document.getElementById('d').innerHTML = "above";
+        }else{
+            document.getElementById("top").innerHTML = "CoolStone Technologies";
+            document.getElementById('d').innerHTML = "on the left";
+        }
+
+
+const opts = {
+method:"GET"
+}
+
+const loadServices = (newFirst, showDep) => {
+fetch('https://raw.githubusercontent.com/coolstone-tech/services/main/index.json', opts).then(r => r.json().then(data => {
+const d = newFirst ? data.reverse() : data
+d.forEach(service => {
+if(!p.has("type")) p.set("type", "app")
+if(service.deprecated && !showDep) return
+if(service.type != p.get("type")) return
+const button = document.createElement("button")
+button.innerHTML = service.name
+button.className = 'menub'
+button.onclick = () => set_service(service.name, service.about, service.url)
+document.getElementById('srv').innerHTML = p.get("type") == 'app' ? 'Apps' : p.get('type') == 'npm' ? "Packages" : p.get('type') == 'cli' ? "CLI Tools" : p.get('type') == 'website' ?  'Websites' : "Other Services"
+document.getElementById("services").appendChild(button)
+})
+}))
+if(p.has('type')) document.getElementById(p.get('type')).style.textDecoration = 'underline'
+}
+if(p.has("oldest")){
+loadServices(false,p.has('deprecated'))
+document.getElementById("sort").value = 'oldest'
+}else{
+loadServices(true,p.has('deprecated'))
+}
+
+if(p.has("q")){
+let url = `search/?q=${p.get("q")}`
+if(p.has('type')) url += `&type=${p.get("type")}`
+if(p.has("oldest")) url += '&oldest'
+location = url
+}
+
+const set_service = (name, about, url) => {
+document.getElementById('url').style.display = 'inline-block'
+document.getElementById("nm").innerHTML = name
+document.getElementById("ab").innerHTML = about
+document.getElementById("url").onclick = () => window.open(url)
+}
+
+    </script>
+</body>
+</html>

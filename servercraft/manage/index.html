@@ -1,0 +1,34 @@
+<head>
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<div class="main">
+<div id="setup" style="z-index: 5; position: fixed; width: 100%; height:120vh;
+text-align: center; background: none; z-index: 100000; background: none; ">
+<div style="position: fixed; width: 100%;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+width: 70%;
+border-radius: 10px;
+transform: translate(-50%, -50%); background: none; padding:10px; background-color: none; width: 50%;">
+<div id="man">
+<h3>Manage your server</h3>
+<button onclick="location = 'servercraft://start'">Start</button>
+
+    <button onclick="location = 'servercraft://config'">Configure</button>
+    <button onclick="location = 'servercraft://delete'">Delete</button><hr style="width: 69%;">
+    <button onclick="location = 'servercraft://files'">View Files</button>
+    <button onclick="location = '/'">Exit</button>
+</div>
+<div id="m" style="font-family:Arial, Helvetica, sans-serif !important; display: none;">
+<p style="font-family:Arial, Helvetica, sans-serif;">Servercraft is not supported on mobile.</p>
+<a style="font-size: small; font-family: Arial, Helvetica, sans-serif;" onclick="document.getElementById('m').style.display = 'none'; document.getElementById('man').style.display = 'block'">I'm not on mobile</a>
+</div>
+<br><br>
+</div>
+</div>
+</div>
+
+<script>
+</script>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head><title>Trivia</title> <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://files.coolstone.dev/logos/current/logo.png">
+<meta name="description" content="Test your knowledge!">
+<meta name="keywords" content="coolstone, tech, js, developers, npm">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+a{ text-decoration: underline;} 
+body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #979797; overflow-x: hidden; overflow-y: hidden; } 
+
+* { text-align: center; color: black; }
+
+.nothing, .dmca-badge{ text-decoration: none; border:none; padding:0px; float: none !important; }
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%
+}
+
+.image {
+  flex-basis: 10%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+body, html {
+    height: 100%;
+}
+
+.hero-image {
+  width: 99%;
+  height: 110%;
+  margin: auto;
+  border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+background: none;
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+select, input{
+outline: none;
+width: 20%;
+margin: 10px;
+}
+
+label{
+  display: block;
+  display: inline;
+}
+button, select, input{
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+      margin: 15px;
+}
+#go, #exit{
+width: 10%;
+padding: 10px;
+}
+select,input, #to{
+background-color: gray;
+}
+#to{
+  display:inline-flex;
+width: 20%;
+justify-content:center;
+align-items:center;
+}
+sup{
+cursor: help;
+}
+
+@media only screen and (max-width: 600px) {
+  select, input, button {
+    width: 50% !important;
+  }
+}
+
+</style><br><br id="exb" style="display: none;">
+<label for="token">Session Token</label><br>
+<button id="to" onclick="document.getElementById('t').style.display='block'">Open</button> <Br>
+<label for="type">Type </label><br><select id="type"><option value="multiple">Multiple Choice</option><option value="boolean" >True/False</option></select><br>
+<label for="cat">Category </label> <br><select id="cat"></select><br>
+<label for="dif">Difficulty </label> <br><select id="dif"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select><br>
+<label for="gm">One chance</label> <br>
+<select id="gm"><option value="false">Disabled</option><option value="true">Enabled</option></select><br><br>
+<button onclick="go()" id="go">Play</button>
+<button onclick="location = '/'" id="exit" style="width: 10%;">Exit</button>
+
+<div id="t" style="z-index: 5; position: fixed; width: 100%; height:120vh;
+text-align: center; background: none; display: none;">
+<div style="position: fixed; width: 100%;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%); text-align: center !important; background-color: gray; width: 60%; border-radius: 10px;">
+<h2>Session Token</h2>
+<p style="width:99%; font-size: x-small; text-align: center;">Having a session token will never give you the same question twice, unless reset. You can get a new token by clicking Generate new (if you want to repeat questions, click reset), or use one you already have one, enter it below and click change. If you have 6+ hours of inactivity, you will need to generate a new token.</p>
+<input id="token" style="width:80%" value="token">
+<br>
+<button onclick="localStorage.setItem('token',document.getElementById('token').value);alert(`Changed token to ${document.getElementById('token').value}`)">Change</button> <button onclick="fetch(`https://opentdb.com/api_token.php?command=reset&token=${localStorage.getItem('token')}`).then(e => {alert('Your token has been reset')})">Reset</button> <button onclick="newToken()">Generate new</button> <button onclick="document.getElementById('t').style.display='none'">Close</button> <Br>
+
+</div>
+</div>
+
+<footer>
+  <br>
+<p style="text-align: center !important; display:block; font-size: x-small;"> Powered by <a href="https://opentdb.com/">OpenTDB</a>. <br><br>
+<a target="_blank" style="text-align: center; display:block;" href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" title="DMCA.com Protection Status" class="dmca-badge" id="badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+</footer>
+<script>
+const u = new URLSearchParams(location.search)
+
+
+newToken = () => {
+fetch('https://opentdb.com/api_token.php?command=request').then(r => r.json().then(t => {
+localStorage.setItem("token",t.token)
+document.getElementById('token').value = localStorage.getItem("token")
+}))
+}
+
+window.onload = () => {
+if(!localStorage.getItem('token')){
+newToken()
+}
+document.getElementById('token').value = localStorage.getItem("token")
+}
+
+fetch('https://opentdb.com/api_category.php').then(r => r.json().then(cats => {
+  document.getElementById('cat').innerHTML = ''
+for (const cat of cats.trivia_categories){
+document.getElementById('cat').innerHTML += `<option value="${cat.id}">${cat.name}</option>`
+}
+}))
+
+const go = () => {
+let url = `question.html?category=${document.getElementById("cat").value}&difficulty=${document.getElementById('dif').value}&type=${document.getElementById('type').value}&token=${localStorage.getItem("token")}&genius=${document.getElementById('gm').value}`
+if(u.has('noexit')){ url+='&noexit' }
+location = url
+}
+
+if(u.has("noexit")){
+document.getElementById('exit').style.display = 'none'
+document.getElementById('badge').style.display = 'none'
+document.getElementById('exb').style.display = 'block'
+}
+</script>

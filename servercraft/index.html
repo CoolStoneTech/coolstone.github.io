@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head><title>Servercraft</title> <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="./logo.png">
+<meta name="description" content="Make your own Minecraft server!">
+<meta name="keywords" content="coolstone, tech, js, developers, npm">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #979797; overflow-x: hidden; overflow-y: hidden; } 
+
+*{text-align: center !important; color: black;}
+
+.new{
+border: 0px solid black;
+width: 90%;
+margin: auto;
+
+  margin: 20px;
+
+  background: rgb(182, 182, 182);    
+  border: 1px solid black;
+/* transform: skewX(-10deg); */
+  text-align: center !important;
+
+}
+
+a{ text-decoration: none; border: 1px solid black; padding: 10px; padding-top: 5px; padding-bottom: 5px; border-radius:5px; float: right;  }
+
+.nothing, .dmca-badge{ text-decoration: none; border:none; padding:0px; float: none !important; }
+
+tr a { margin-right: 5%; }
+
+button, .button {
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      /* The navigation bar */
+
+      .navbar img{
+        width: 5%;
+      }
+
+/* Links inside the navbar */
+.navbar a {
+border-radius: 0px;
+padding: 5px;
+background: none;
+color: black !important;
+text-decoration: none;
+}
+
+
+.navbar{
+margin: auto;
+text-align: center;
+width: 99%;
+color: black;
+  margin: auto;
+overflow: hidden;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background: none;
+}
+
+.navbar a{
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%
+}
+
+.image {
+  flex-basis: 10%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  width: 99%;
+  height: 110%;
+  margin: auto;
+  border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+background: none;
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.top{
+    margin-left: 30px; text-align: center;
+}
+</style>
+<div class="hero-image">
+<div class="hero-text">
+<div class="container" style="margin: auto; text-align: center;">
+<img src="./logo.png" class="image" style="width: 30%;"> <label id="cstech" style="font-size: xx-large; width: 75% !important;" class="text"></label>
+</div>
+</div>
+</div>
+<div class="navbar">
+    <a class="nothing" href="/"><b>Home</b></a> |
+    <a class="nothing" href="https://patreon.com/coolstone" target="_">Donate</a> |
+    <a class="nothing" href="https://npmjs.com/servercraft" target="_">NPM</a> |
+    <a class="nothing" target="_" href="https://groups.google.com/g/coolstonetech">Forum</a> |
+    <a class="nothing" target="_" href="https://servercraft.coolstone.dev">Docs</a> |
+    <a class="nothing" href="manage">Manage your server</a>
+    </div>
+<a style="  
+font-family: tahoma;
+margin-top: .5%;
+margin-right: 1%;
+position:fixed;
+top:0;
+right:0; background-color: #979797; z-index: 100000;" href="manage">Manage your server</a>
+<h2 class="top">What is Servercraft?</h2>
+Servercraft makes setting up a Minecraft server on your device as easy as clicking a button<sup>1</sup>.
+<br><br>
+<h2 class="top">Why use Servercraft?</h2>
+You don't have to, but if you want a server on your own device, Servercraft makes it a lot easier.
+<br><br>
+<h2 class="top">How do I use the Servercraft app?</h2>
+First, download the app (v1 or later). Then, go to the <a href="manage" class='nothing' style="text-decoration: underline;">manage page</a>. Click "Start" to start the server, "Configure" to change the server properties, "Delete" to delete the server, and "View Files" to open the directory containing your server files. You can also put "servercraft://start, config, delete, files", respectively, in your browser. You can also use the app UI to manage your server!
+<br><br>
+<h2 class="top">How do I use the Servercraft CLI?</h2>
+First, install it globally from <a class="nothing" style="text-decoration: underline;" href="https://npmjs.com/servercraft" target="_blank">NPM</a>, <code>[sudo] npm i servercraft -g</code>. Then, run <code>servercraft</code> in your command-line for a list of all commands!
+<h2>Can I use Servercraft programmatically from NPM?</h2>
+Yes! Read <a class="nothing" style="text-decoration: underline;" href="https://servercraft.coolstone.dev/node.js">our docs</a> to find out how!
+<footer style="text-align: center !important; font-size: x-small;">
+<br><hr style="width: 70%; border-color:black;">
+<sup>1</sup> Java must be installed on your device before running Servercraft
+<br><br>
+<label style="text-align: center !important; display:block;"> Created by Minecraft fans at <a href="https://coolstone.dev" target="_blank" class="nothing" style="text-decoration: underline;">Coolstone Technologies</a>. By using Servercraft, you agree to our <a class="nothing" target="_blank" style="text-decoration:underline !important;" href="https://coolstone.dev/terms/#/servercraft">terms of service</a></label>
+<br>
+</footer><br>
+
+
+<script>
+
+
+let i = 0;
+const txt = document.title;
+const speed = 100; 
+document.getElementById("cstech").innerHTML = ''
+const write = () => {
+
+  if (i < txt.length) {
+    document.getElementById("cstech").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(write, speed);
+  }
+}
+
+write()
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head><title>Trivia</title> <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://files.coolstone.dev/logos/current/logo.png">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #979797; overflow-x: hidden; overflow-y: hidden; text-align: center !important;} 
+button, select, input{
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding:10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+      margin: 15px;
+      min-width: fit-content !important;
+      width: 15%;
+}
+a{  color: white !important; text-decoration: none !important; }
+#CONT_OK{
+width: 30%;
+}
+@media only screen and (max-width: 600px) {
+#CONT_OK{
+width: 80%;
+}
+}
+</style>
+<div id="n" style="z-index: 500000; position: fixed; width: 100%; height:120vh;
+text-align: center; background: none; display: none;">
+<div id="in" style="position: fixed; width: 100%;
+top: 50%; background-color: gray;
+left: 50%; width: 50%; border-radius: 15px;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);">
+<h2 id="txt"></h2>
+<button id="CONT_OK" onclick="cont()">OK</button>
+</div>
+</div>
+<div style="z-index: 5; position: fixed; width: 100%; height:120vh;
+text-align: center; background: none;">
+<div id="in" style="position: fixed; width: 100%;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);">
+<h2 id="q">Loading...</h2>
+<p id="c"></p>
+<div id="answers"></div>
+<button onclick="submit()">Submit</button> <button onclick="location.reload()">New</button> <button id="a_q" onclick="document.getElementById('aq').click()"><a target="_blank" id="aq" href="https://opentdb.com/trivia_add_question.php">Add</a></button> <button onclick="location = `/trivia/${ params.has('noexit') ? '?noexit' : '' }`">Exit</button>
+</div>
+</div>
+<footer>
+<label style="  position: fixed;
+left: 50%;
+bottom: 10px;
+transform: translate(-50%, -50%);
+margin: 0 auto;
+font-size: x-small;
+" id="count"></label>
+</footer> 
+<script>
+const params = new URLSearchParams(location.search)
+if(!localStorage.getItem("token") || !params.get("category") || !params.get("difficulty") || !params.get("type")){ location = '/trivia' }
+
+fetch('https://opentdb.com/api_count_global.php').then(r => r.json().then(e => {
+   document.getElementById('count').innerHTML = `One of ${e.overall.total_num_of_questions} questions from OpenTDB`
+  }))
+
+fetch(`
+https://opentdb.com/api.php?amount=1&category=${params.get("category")}&difficulty=${params.get("difficulty")}&type=${params.get("type")}&token=${localStorage.getItem("token")}
+`).then(r => r.json().then(q => {
+if(q.response_code != 0) {document.getElementById('count').innerHTML =''; document.getElementById('in').innerHTML = `${q.response_code == 1 ? 'NNo Results' : q.response_code == 2 ? "Invalid Parameter" : q.response_code == 3 ? 'Token not found. Go back and generate a new one' : q.response_code == 4 ? 'Reset your token' : 'Something went wrong'} <br><br> <a href="/trivia">Go back</a>`}else{
+const res = q.results[0]
+document.getElementById('q').innerHTML = res.question
+document.title = `${res.question} - CoolStone Trivia` 
+const a = []
+a.push(res.correct_answer)
+sessionStorage.setItem("correct",res.correct_answer)
+res.incorrect_answers.forEach(ia => {
+a.push(ia)
+})
+a.sort((a, b) => 0.5 - Math.random())
+a.forEach(aa => {
+const aB = document.createElement("button")
+aB.innerHTML = aa
+aB.style.backgroundColor = 'gray'
+aB.onclick = () => {
+sessionStorage.setItem("chosen",aa)
+document.getElementById("c").innerHTML = `Your choice: ${aa}`
+}
+document.getElementById('answers').appendChild(aB)
+})
+}
+}))
+
+
+if(!localStorage.getItem('token')){
+  fetch('https://opentdb.com/api_token.php?command=request').then(r => r.json().then(t => {
+localStorage.setItem("token",t.token)
+  }))
+}
+
+const notify = (e) => {
+document.getElementById("txt").innerHTML = e
+document.getElementById('n').style.display = 'block'
+}
+
+const submit = () => {
+if(sessionStorage.getItem("correct") == sessionStorage.getItem("chosen")){
+notify('Correct!')
+}else{
+if(!params.get("genius") || params.get("genius") != 'true'){
+notify("Not correct")
+}else{
+notify(`Not correct. \n <br><p style="font-size:x-small"> The correct answer was "${sessionStorage.getItem("correct")}"</p>`)
+}
+}
+}
+
+const cont = () => {
+  if(sessionStorage.getItem("correct") == sessionStorage.getItem("chosen")){
+    sessionStorage.clear()
+    location.reload()
+  }else if(params.get("genius") && params.get("genius") == 'true'){
+    sessionStorage.clear()
+    location.reload()
+    }else{
+    
+    }
+  document.getElementById('n').style.display = 'none'
+}
+
+if(params.has('noexit')){
+document.getElementById("a_q").style.display = 'none'
+}
+</script>

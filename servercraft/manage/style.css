@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+color: white;
+font-family:'Press Start 2P', Arial;
+outline: none;
+user-select: none;
+}
+
+a{ text-decoration: none; }
+
+body{
+background-color: rgb(50, 50, 50);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+ #title-bar {
+  -webkit-app-region: drag;
+  height: 24px; 
+  background-color: darkviolet;
+  padding: none;
+  margin: 0px; 
+ }
+
+
+button{
+background-color: gray;
+padding: 10px;
+width: 69%;
+border:1px solid rgb(4, 17, 7);
+cursor: pointer;
+margin: 8px;
+}
+button:hover{
+background-color: rgb(124, 121, 188);
+color: rgb(244, 246, 180);
+}
+
+
+
+input{
+border-radius: 10px;
+border:None;
+padding: 5px;
+color: black;
+}
+
+  .main {
+    margin-left: 160px; 
+    font-size: 28px;
+    padding: 0px 10px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .nohover{
+    font-size: small !important;
+  }
+
+  .nohover:hover{
+    color: #818181 !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #man { display: none; }
+    #m { display: inline; }
+  }

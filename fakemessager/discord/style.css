@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(54, 57, 64);
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    a{
+    font-size: smaller;
+    color: rgb(0, 160, 233);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    }
+
+    a:hover{
+    text-decoration: underline;
+    }
+
+    .bttn, button{
+    background-color: #5865F2;
+    outline: none;
+    border-radius: 2.5px;
+    color: #FFFFFF;
+    border: none;
+    font-size: small;
+    padding: 8;
+    width: 25%;
+    }
+
+
+    .bttn:hover, button:hover{
+    background-color: rgb(86, 71, 219);
+    }
+
+
+    .msg{
+    background:none;
+    width: 85%;
+    margin: auto;
+    }
+
+    .msg:hover{
+    background-color: rgb(50,53,60);
+    }
+
+    .textInput{
+    background-color: rgb(48,51,57) !important;
+    border-radius: 5px;
+    border: 0.3px solid black;
+    color: white;
+    outline: none;
+    width: 80%;
+    
+    margin: auto;
+  
+    padding: 9;
+    }
+    
+
+
+
+    body,div{
+        border-radius: 2.5px;
+    }

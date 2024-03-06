@@ -1,0 +1,68 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body{
+    background-color: #979797;
+    color: #ffffff;
+    font-family: "Press Start 2P", cursive;
+}
+
+button{
+background-color: gray;
+padding: 10px;
+width: 100%;
+border:1px solid rgb(4, 17, 7);
+cursor: pointer;
+margin: 8px;
+font-family: 'Press Start 2P', cursive;
+font-size: xx-small;
+}
+button:hover{
+background-color: rgb(124, 121, 188);
+color: rgb(244, 246, 180);
+}
+</style>
+
+<div id="version">
+<h2 id="id"></h2>
+<p id="timestamp"></p>
+<p id="min_v"></p>
+<p id="min_j_v"></p>
+<button id="download_client">Download Client</button><br>
+<button id="download_server">Download Server</button><br>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search)
+var id = params.get("id")
+fetch("https://launchermeta.mojang.com/mc/game/version_manifest.json").then(response => response.json().then(_data => {
+const v = _data.versions.find(v => v.id == id)?.url
+if(response.status != 200 || !v) document.getElementById("version").innerHTML = `<h3>Version not found</h3><p style="font-size:xx-small;">Version ${id} not found</p>`
+fetch(v).then(response => response.json().then(data => {
+document.getElementById("id").innerHTML = `${data.id} (${data.type})`
+document.getElementById("timestamp").innerHTML = `Released on ${new Date(data.releaseTime).toLocaleString()}`
+document.getElementById("min_v").innerHTML = `Minimum Launcher Version: ${data.minimumLauncherVersion}`
+document.getElementById("min_j_v").innerHTML = `Minimum Java Version: ${data.javaVersion.majorVersion}`
+document.getElementById("download_client").onclick = () => window.open(data.downloads.client.url)
+document.getElementById("download_server").onclick = () => window.open(data.downloads.server.url)
+}))
+}))
+document.title = `Minecraft Server ${id}`
+
+const setarial = () => {
+if(params.has("arial")) {
+params.delete("arial")
+} else {
+params.append("arial", "true")
+}
+window.location.search = params.toString()
+}
+
+if(params.has("arial")) document.getElementById("setarial").innerHTML = "Set Font to Press Start 2P"
+</script>

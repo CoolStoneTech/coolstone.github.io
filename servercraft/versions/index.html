@@ -1,0 +1,68 @@
+<head>
+<title>Available Minecraft Server Versions</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body{
+        background-color: #979797;
+        color: #ffffff;
+        font-family: "Press Start 2P", cursive;
+    }
+
+    * {
+      text-align: center;
+    }
+    
+    button{
+    background-color: gray;
+    padding: 10px;
+    width: 10%;
+    border:1px solid rgb(4, 17, 7);
+    cursor: pointer;
+    margin: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    }
+    button:hover{
+    background-color: rgb(124, 121, 188);
+    color: rgb(244, 246, 180);
+    }
+
+    a{
+    color: #ffffff;
+    text-decoration: none;
+    }
+    </style>
+    
+
+<h4>Available Minecraft Server Versions</h4>
+<div id="versions">Loading...</div>
+<button id="setarial" onclick="setarial()">Use Arial</button>
+<script>
+const params = new URLSearchParams(window.location.search)
+fetch("https://launchermeta.mojang.com/mc/game/version_manifest.json").then(response => {
+  return response.json()
+}).then(json => {
+  document.getElementById('versions').innerHTML = ""
+  const v = json.versions.forEach(v => {
+    const version = document.getElementById("versions")
+    version.innerHTML += `<a href="v/?id=${v.id}">${v.id}</a><br><br>`
+  });
+})
+
+
+const setarial = () => {
+if(params.has("arial")) {
+params.delete("arial")
+} else {
+params.append("arial", "true")
+}
+window.location.search = params.toString()
+}
+
+if(params.has("arial")){
+document.body.style.fontFamily = 'arial'
+document.getElementById('setarial').innerHTML = 'Use Press Start 2P'
+}
+</script>

@@ -1,0 +1,88 @@
+<head>
+    <title>Quark</title>
+    </head>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Oxygen:400,700');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+    
+    *{
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    
+    body{
+        background-color: rgb(24,27,31);
+        color: white;
+    }
+    
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+      }
+      input, select {
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 50%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        outline: none;
+      }
+        
+      button, input[type=submit] {
+        background-color: #007bff; 
+        color: #ffffff;
+        padding: 11px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+    
+      button:hover {
+        background-color: #0069d9;
+      }
+      
+      h1{
+        font-family: Comfortaa;
+      }
+      p, a {
+        font-size: small;
+        cursor: pointer;
+      }
+      a{
+        text-decoration: underline;
+        color: white;
+      }
+    </style>
+    
+    <div>
+        <h1 style="font-size: 60px;">quark</h1>
+        <input type="text" id="search" placeholder="What do you want to know?"> <button onclick="search()">Search</button>
+       <br><Br>
+        <p><a href="https://coolstone.itch.io/quark">Download the app</a> to unlock more features, such as history, bookmarks, custom search engines, and more!</p>
+    </div>
+    
+    <script>
+    const search = () =>{
+        const q = document.getElementById('search').value;
+        try{
+            const url = new URL(q);
+            location = url;
+        }catch{
+            location = `https://google.com/search?q=${q}`;
+        }
+    }
+      document.getElementById("search").addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        search();
+        }
+      });
+    </script>

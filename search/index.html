@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<head><title>Search Services - CoolStone Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png">
+<meta name="description" content="Search CoolStone services">
+<meta name="keywords" content="coolstone, tech, js, developers, npm">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+a{color: white;} 
+body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #333; overflow-x: hidden; overflow-y: hidden; color: white; } 
+
+
+.new{
+width: 90%;
+margin: auto;
+
+  margin: 20px;
+
+  background: rgb(182, 182, 182);    
+  border: 1px solid white;
+/* transform: skewX(-10deg); */
+  text-align: center !important;
+
+}
+
+table{
+width: 99% !important;
+}
+
+a{ text-decoration: none; border: 1px solid white; padding: 10px; padding-top: 5px; padding-bottom: 5px; border-radius:5px; float: right;  }
+
+* { outline: none; }
+
+.nothing, .dmca-badge{ text-decoration: none; border:none; padding:0px; float: none !important; }
+
+tr a { margin-right: 5%; }
+
+ input, select {
+        background: none;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .navbar img{
+        width: 5%;
+      }
+
+      button, .button{
+        background-color: #00b718;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        min-width: 5%;
+        width: fit-content;
+      }
+
+.navbar a {
+border-radius: 0px;
+padding: 5px;
+background: none;
+color: black !important;
+text-decoration: none;
+}
+
+
+.navbar{
+margin: auto;
+text-align: center;
+width: 99%;
+color: black;
+  margin: auto;
+overflow: hidden;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background: none;
+}
+
+.navbar a{
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%
+}
+
+.image {
+  flex-basis: 10%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+body, html {
+    height: 100%;
+}
+
+.hero-image {
+  width: 99%;
+  height: 110%;
+  margin: auto;
+  border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+background: none;
+  height: 50%;
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+ -khtml-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none; 
+        user-select: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+select{
+outline: none;
+}
+
+#sort_{
+    top:0;
+    z-index:100;
+    padding: 10px;
+    padding-top: 15px;
+    text-align: center !important;
+    width: 100%;
+    margin:-10px;
+}
+
+.nosel{
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+ -khtml-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none; 
+        user-select: none;
+}
+</style>
+<div class="hero-image">
+<div class="hero-text">
+<div class="container" style="margin: auto; text-align: center;">
+<img src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" class="image" style="width: 20%;"> <label id="cstech" style="font-size: xx-large; width: 75% !important;color: white;" class="text"></label>
+</div>
+</div>
+</div>
+
+<div id="sort_" style="text-align: center;">
+  <label id="s_label">Search</label> <select id="searchin"><option value="name">names</option><option value="about">descriptions</option><option value="url">URLs</option></select> for  <input id="searchfor"></select>
+<button style="margin-left: 15px;" onclick="search()">Search</button> 
+</div>
+
+<p style="text-align: center;">Sort by <select id="sort"> <option value="newest">newest first</option> <option value="oldest">oldest first</option> </select> and show <select id="show"> <option value="everything">everything</option> <option value="app">apps</option> <option value="cli">CLI tools</option> <option value="npm">npm packages</option> <option value="website">websites</option> <option value="other">other projects</option> </select></p>
+
+<div style="display: inline; text-align:center;">
+<table style="width: 100%;" id="table">
+
+</table></div>
+<br><br>
+<footer>
+<label style="text-align: center !important; display:block;" class="nosel" for="null"> 
+ <div style="display:none;" id="dep"><input type="checkbox" id="showd"> <label for="showd">Show deprecated</label><br><br> </div> 
+<br>
+<a target="_blank" href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+</footer><br>
+<script>
+
+
+let i = 0;
+const txt = `Search Services`;
+const speed = 100; 
+document.getElementById("cstech").innerHTML = ''
+const write = () => {
+  if (i < txt.length) {
+    document.getElementById("cstech").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(write, speed);
+  }
+}
+
+const p = new URLSearchParams(location.search)
+
+$(window).scroll(e => { 
+  const $el = $('#sort_')
+  const isPositionFixed = ($el.css('position') == 'fixed')
+  if ($(this).scrollTop() > 530 && !isPositionFixed){ 
+    $el.css({'position': 'fixed', 'top': '0px', "background-color":"#979797"})
+    document.getElementById('s_label').innerHTML = 'Searching'
+  }
+  if ($(this).scrollTop() < 200 && isPositionFixed){
+    $el.css({'position': 'static', 'top': '0px', "background":"none","border":"none"})
+    document.getElementById('s_label').innerHTML = 'Search'
+  } 
+})
+
+search = (dep) => {
+const table = document.getElementById("table")
+const sel = document.getElementById("sort")
+table.innerHTML = ''
+const searchfor = document.getElementById("searchfor").value
+loadServices(sel.value != 'oldest', searchfor, document.getElementById("showd").checked, document.getElementById("show").value)
+}
+
+const loadServices = (newFirst,searchFor,showDep, type) => {
+let hasDep = false
+fetch('https://raw.githubusercontent.com/coolstone-tech/services/main/index.json').then(r => r.json().then(data => {
+const d = newFirst ? data.reverse() : data
+d.filter(el => {
+return el[document.getElementById("searchin").value]?.match(new RegExp(searchFor, 'gi'))
+}).filter(el => {
+return type ? type == "everything" ? true : el.type == type: true
+}).forEach(service => {
+if(service.deprecated && service.deprecated == true){ 
+hasDep = true
+document.getElementById("dep").style.display = 'inline'
+}else{
+if(hasDep == false){
+document.getElementById("dep").style.display = 'none'
+}
+}
+if(service.deprecated && document.getElementById("showd").checked == false) return
+document.getElementById('table').innerHTML +=
+`
+<tr id="${String(service.name).toLowerCase().split(" ").join("-")}">
+<td><h3>${service.name}</h3></td>
+<td><h4>${service.about}</h4></td>
+<td> <a target="_" href="${service.url}">Open</a>
+</tr>
+`
+})
+}))
+}
+
+if(p.has('type')) document.getElementById("searchin").value = p.get("type")
+if(p.has('q')) document.getElementById("searchfor").value = p.get("q")
+if(p.has("oldest")) document.getElementById("sort").value = 'oldest'
+if(p.has("type")) document.getElementById("show").value = p.get("type")
+document.getElementById("showd").checked = p.has("deprecated")
+
+
+loadServices(p.has("oldest") || true, p.has("q") ? p.get("q") : '', p.has("deprecated"), p.has("type") ? p.get("type") : 'everything')
+
+document.getElementById("showd").onchange = () => {
+search(document.getElementById("showd").checked)
+}
+
+document.addEventListener("keypress", event => {if (event.key === "Enter") {event.preventDefault(); search()}})
+
+write()
+</script>

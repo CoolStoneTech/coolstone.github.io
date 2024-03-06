@@ -1,0 +1,83 @@
+<head>
+    <title>Download an NPM package</title>
+</head>
+<style>
+*{
+outline: none;
+border-radius: 10px;
+border: none;
+text-align: center;
+padding:3px;
+font-family: Arial, Helvetica, sans-serif;
+}
+button{
+padding-left: 10px;
+padding-right: 10px;
+width: 41%;
+}
+input{
+width: 20%;
+}
+label{
+    width: 20%;
+    display: inline-block;
+}
+body{
+background-color: #979797;
+}
+@media only screen and (max-width: 600px) {
+    #e {
+        border: 1px solid black;
+  }
+}
+</style>
+<body>
+    <div id="new" class="modal">
+        <div id="modal_out" style="z-index: 5; position: fixed; width: 100%; height:120vh;
+        text-align: center; background: none;">
+        <div id="e" style="position: fixed; width: 90%;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);">
+        <h2>Download an NPM package</h2>
+<label for="n">Package:</label> <input id="n"> <br><br>
+<label for="v">Version: </label><input id="v"> <br><br>
+<button onclick="opn()">Download</button><br><br>
+        </div>
+        </div>
+</body>
+<script>
+
+const Var = (variable) => {
+    let query = window.location.search.substring(1)
+    let vars = query.split('&')
+    for (let i = 0; i < vars.length; i++) {
+        let pair = vars[i].split('=')
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]).toLowerCase()
+        }
+    }
+}
+
+if(Var("v") || Var("version")){
+   const v = Var('v') || Var("version")
+    document.getElementById('v').value = v
+}
+if(Var('pkg') || Var("package") || Var("name")){
+const nm = Var("package") || Var("pkg") || Var("name")
+document.getElementById('n').value = nm
+}
+
+
+const opn2 = () => {
+    const n = document.getElementById('n').value
+const url = `https://registry.npmjs.org/${n}/-/${n}-${document.getElementById('v').value}.tgz`
+     open(url)
+}
+const opn = () => {
+    const n = document.getElementById('n').value
+const url = `https://registry.npmjs.org/${n}/-/${n}-${document.getElementById('v').value}.tgz`
+location = url
+}
+</script>
