@@ -131,7 +131,7 @@ transform: translate(-50%, -50%); text-align: center !important; background-colo
 <p style="width:99%; font-size: x-small; text-align: center;">Having a session token will never give you the same question twice, unless reset. You can get a new token by clicking Generate new (if you want to repeat questions, click reset), or use one you already have one, enter it below and click change. If you have 6+ hours of inactivity, you will need to generate a new token.</p>
 <input id="token" style="width:80%" value="token">
 <br>
-<button onclick="localStorage.setItem('token',document.getElementById('token').value);alert(`Changed token to ${document.getElementById('token').value}`)">Change</button> <button onclick="fetch(`https://opentdb.com/api_token.php?command=reset&token=${localStorage.getItem('token')}`).then(e => {alert('Your token has been reset')})">Reset</button> <button onclick="newToken()">Generate new</button> <button onclick="document.getElementById('t').style.display='none'">Close</button> <Br>
+<button onclick="sessionStorage.setItem('token',document.getElementById('token').value);alert(`Changed token to ${document.getElementById('token').value}`)">Change</button> <button onclick="fetch(`https://opentdb.com/api_token.php?command=reset&token=${sessionStorage.getItem('token')}`).then(e => {alert('Your token has been reset')})">Reset</button> <button onclick="newToken()">Generate new</button> <button onclick="document.getElementById('t').style.display='none'">Close</button> <Br>
 
 </div>
 </div>
@@ -147,16 +147,16 @@ const u = new URLSearchParams(location.search)
 
 newToken = () => {
 fetch('https://opentdb.com/api_token.php?command=request').then(r => r.json().then(t => {
-localStorage.setItem("token",t.token)
-document.getElementById('token').value = localStorage.getItem("token")
+sessionStorage.setItem("token",t.token)
+document.getElementById('token').value = sessionStorage.getItem("token")
 }))
 }
 
 window.onload = () => {
-if(!localStorage.getItem('token')){
+if(!sessionStorage.getItem('token')){
 newToken()
 }
-document.getElementById('token').value = localStorage.getItem("token")
+document.getElementById('token').value = sessionStorage.getItem("token")
 }
 
 fetch('https://opentdb.com/api_category.php').then(r => r.json().then(cats => {
@@ -167,7 +167,7 @@ document.getElementById('cat').innerHTML += `<option value="${cat.id}">${cat.nam
 }))
 
 const go = () => {
-let url = `question.html?category=${document.getElementById("cat").value}&difficulty=${document.getElementById('dif').value}&type=${document.getElementById('type').value}&token=${localStorage.getItem("token")}&genius=${document.getElementById('gm').value}`
+let url = `question.html?category=${document.getElementById("cat").value}&difficulty=${document.getElementById('dif').value}&type=${document.getElementById('type').value}&token=${sessionStorage.getItem("token")}&genius=${document.getElementById('gm').value}`
 if(u.has('noexit')){ url+='&noexit' }
 location = url
 }
