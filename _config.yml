@@ -1,0 +1,3 @@
+url: "coolstone.dev"
+plugins:
+  - jekyll-sitemap
