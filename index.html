@@ -4,342 +4,605 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoolStone Technologies</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap">
-    <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png">
-<meta name="description" content="We make various awesome projects! Check out some of our projects here!">
-<meta name="keywords" content="coolstone, tech, js, developers, npm">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        * {
-            font-family: 'Oxygen', sans-serif;
+
+        @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #db8534;
+            --secondary-color: #cc532e;
+            --background-color: #f0f3f5;
+            --text-color: #34495e;
+            --accent-color: #ff1900;
+        }
+        
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: Oxygen, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            height: 100vh;
-            margin: 0;
-            background-color: #333;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: small;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
         .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 1rem;
+        }
+
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
             display: flex;
-            align-items: center;
+            gap: 1.5rem;
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
-            margin: 0;
-        }
-
-        .links {
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .links a {
-            color: #fff;
+        .nav-links a {
             text-decoration: none;
-            margin: 0 15px;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .button {
-            padding: 8px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
-        #menu-container {
-            display: flex;
-            height: 80%;
+        main {
+            padding: 2rem 0;
         }
 
-        .menu-buttons {
-            width: 20%;
-            display: grid;
-            row-gap: -10px;
-        }
-
-        .menu-buttons button {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        #content-container {
-            width: 80%;
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            display: grid;
-            row-gap: -10px;
+            padding: 4rem 0;
             text-align: center;
-            border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border-bottom-right-radius: 10px;
+            margin-bottom: 2rem;
+            background-size: cover;
+            background-position: center;
         }
 
-        #f {
-            text-align: center;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
             color: white;
-            background-color: #333;
-            padding: 10px;
-        }
-
-        #f a {
-            text-decoration: underline;
-            color: white;
-        }
-
-        #url{
-            padding: 10px;
-            background-color: #4CAF50;
-            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
             text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card * {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                margin-top: 1rem;
+            }
+
+          
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .service-button {
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-details {
+            background-color: white;
+            border-radius: 10px;
+            padding-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-details:hover{
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-details h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-url {
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .service-url:hover {
+            text-decoration: underline;
+        }
+
+        #sort-container {
+            margin-bottom: 1rem;
+        }
+
+        #sort {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--text-color);
+        }
+
+        #hide{
+           color: red;
+           font-size: xx-large;
+           background: none;
+           border: none;
+           float: right;
+           cursor: pointer;
+        }
+
+        .nav-links a{
+            cursor: pointer;
+        }
+
+        #filterButton{
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             border: none;
             cursor: pointer;
-            width: 40%;
-            border-radius: 10px;
-            margin-top: 10px;
+            float: right;
+            background-color:rgb(234, 234, 234);
         }
 
-        a{
-            color: white;
+        /* filter popup */
+        #filter {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px 0 0 0;
+            box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
         }
 
-        @media only screen and (max-width: 800px) {
-            .logo img {
-                display: none;
-            }
+        input[type='text'], #filter select{
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--text-color);
+            margin-right: 1rem;
+        }
 
-            #con{
-                display: none;
-            }
+        select{
+            outline: none;
+        }
 
-            #s{
-                display: none;
-            }
+        #filter button{
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+           text-align: center;
+        }
 
-            #sep{
-                display: none;
-            }
-
-            .logo h1 {
-                margin: 0;
-            }
-
-            #menu-container {
-                flex-direction: column;
-            }
-
-            .menu-buttons {
-                width: 100%;
-                display: flex;
-                overflow: scroll;
-            }
-
-            .menu-buttons button {
-                width: fit-content;
-                padding: 10px;
-                background-color: #333;
-                color: #fff;
-                border: none;
-                cursor: pointer;
-            }
-
-            #content-container {
-                width: 100%;
+        @media (prefers-color-scheme: dark) {
+           body{
+                background-color: #2c3e50;  
+                color: white;            
+           }
+           .service-card{
+               background-color: #34495e;
+               color: white;
+           }
+              .service-button{
+                background-color: #34495e;
                 color: white;
-                display: grid;
-                row-gap: -10px;
-                text-align: center;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            #f {
-                text-align: center;
+              }
+              .nav-links a{
                 color: white;
-                background-color: #333;
-                padding: 10px;
-            }
-
-            #f a {
-                text-decoration: underline;
-                color: white;
-            }
-
-            #url{
-                padding: 10px;
-                background-color: #4CAF50;
-                color: #fff;
-                text-decoration: none;
-                border: none;
-                cursor: pointer;
-                width: 40%;
-                border-radius: 10px;
-                margin-top: 10px;
-            }
-
-            a{
-                color: white;
-            }
-
-            #content-container {
-                display: grid;
-                text-align: center;
-                align-items: center;
-            }
-            #srv{
-                display: none;
-            }
+              }
+                .nav-links a:hover{
+                    color: var(--primary-color);
+                }
+                header{
+                    background-color: #34495e;
+                }
+                #filter{
+                    background-color: #34495e;
+                    color: white;
+                }
+                .service-details{
+                    background-color: #34495e;
+                    color: white;
+                }
+                .service-url{
+                    color: white;
+                }
+                #filterButton{
+                    background-color: #34495e;
+                    color: white;
+                }
+                select{
+                    background-color: #34495e;
+                    color: white;
+                }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img id="logo" src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" alt="Logo">
-            <h1 id="top">CoolStone Technologies</h1>
-        </div>
-        <div class="links">
-            <a id="app" href="?type=app">Apps</a>
-            <a id="cli" href="?type=cli">CLI Tools</a>
-            <a id="npm" href="?type=npm">npm</a>
-            <a id="website" href="?type=website">Websites</a>
-            <a id="other" href="?type=other">Other</a>
-            <label id="sep">|</label>
-            <a id="con" href="/contact">Contact</a>
-            <a id="s" href="/search">Search</a>
-        </div>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" alt="CoolStone Logo" class="logo">
+                <span class="company-name">CoolStone Technologies</span>
+            </div>
+            <div class="nav-links">
+                <a onclick="set('app')" id="app">Apps</a>
+                <a onclick="set('cli')" id="cli">CLI</a>
+                <a onclick="set('npm')" id="npm">npm</a>
+                <a onclick="set('website')" id="website">Websites</a>
+                <a onclick="set('other')" id="other">Other</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
     </header>
-<br>
-    <div id="menu-container" style="width: 100%;">
-        <div class="menu-buttons" style="overflow: scroll;" id="services">
-            <button style="font-size: large;" id="srv">Apps</button>
-        </div>
-        <div id="content-container" style="height: 100%;width: 100%;">
-           <div id="content" style="width: 100% !important;">
-            <h2 id="nm"></h2>
-            <p style="margin-top: 13px;" id="ab">
-          Select a service <label id="d"></label> or <a class="nothing" style="text-decoration: underline;" href="/search/">search</a> for a service. <br><br> Have a question? <a class="nothing" style="text-decoration: underline;" href="/contact">Contact us</a>! <a rel="me" style="text-decoration: underline;display: none;" class="nothing" href="https://mastodon.social/@coolstone">Mastodon</a>
-            </p>
-            <button style="display: none;" id="url" class="button">Visit</button>
-           </div>
-        </div>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Innovative Solutions Designed for You</h1>
+            <p>Discover our range of software designed to streamline your workflow and boost productivity.</p>
+            <a id="explore-services" class="cta-button">Explore Our Services</a>
+        </section>
+
+        <section class="services">
+            <div onclick="set('app')" class="service-card">
+                <h3>Apps & Games</h3>
+                <p>Powerful applications and engaging games for various platforms.
+            </div>
+            <div onclick="set('cli')" class="service-card">
+                <h3>CLI Tools</h3>
+                <p>Efficient command-line interfaces for developers.</p>
+            </div>
+            <div onclick="set('npm')" class="service-card">
+                <h3>npm Packages</h3>
+                <p>Reusable JavaScript modules for rapid development.</p>
+            </div>
+            <div onclick="set('website')" class="service-card">
+                <h3>Websites</h3>
+                <p>Web applications and online services for various purposes.</p>
+            </div>
+            <div onclick="set('other')" class="service-card">
+                <h3>Other Services</h3>
+                <p>Additional tools and utilities to enhance your workflow.</p>
+            </div>
+        </section>
+        <h2 style="margin-top: 2rem;" id="srv">Services</h2>
+
+        <section id="sort-container">
+            <label for="sort">Sort by: </label>
+            <select id="sort">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+            </select><button id="filterButton" onclick="showFilter()" class="material-icons">search</button>
+        </section>
+
+        <section id="services" class="service-list">
+        </section>
+
+        <section id="service-details" class="service-details" style="display: none;">
+            <h3 id="nm"></h3>
+            <p id="ab"></p>
+            <a href="#" id="url" class="service-url" target="_blank">Visit Service</a>
+        </section>
+    </main>
+
+    <div id="filter">
+        <input type="text" id="search" placeholder="Search...">
+
+        </select>
+        <label for="show-deprecated">
+            <input type="checkbox" id="show-deprecated"> Deprecated
+        </label>
+        <br>
+        <button onclick="filter()">Apply</button>
     </div>
 
-    <div id="f"><Br><Br><br>
-        <a target="_blank" style="text-decoration: underline;color: white;" href="https://terms.coolstone.dev">Terms of Use</a> |
-        <a target="_blank" style="text-decoration: underline;color: white;" href="https://terms.coolstone.dev/privacy">Privacy Policy</a> |
-        <a target="_blank" style="text-decoration: underline;color: white;" href="/contact">Contact</a> |
-        <a target="_blank" style="text-decoration: underline;color: white;" href="/search">Search</a>
-        <br><br>
-        <div id="wcb" class="carbonbadge"></div>
-<script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
-<div>
-        <a target="_blank" href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" title="DMCA.com Protection Status" class="dmca-badge">
-            <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" alt="DMCA.com Protection Status" />
-        </a>
-    </div>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://terms.coolstone.dev" target="_blank">Terms of Use</a>
+                <a href="https://terms.coolstone.dev/privacy" target="_blank">Privacy Policy</a>
+                <a href="/contact" target="_blank">Contact</a>
+                <a href="/search" target="_blank">Advanced Search</a>
+            </div>
+            <div>
+                <a href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" target="_blank">
+                    <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" alt="DMCA.com Protection Status" style="height: 24px;">
+                </a>
+                <div id="wcb" class="carbonbadge wcb-d"></div>
+                <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+        </div>
+    </footer>
 
-    <script>
-
-const p = new URLSearchParams(location.search)
-
-        window.onresize = function(event) {
-            if (window.innerWidth < 800) {
-                document.getElementById("top").innerHTML = "CoolStone";
-                document.getElementById('d').innerHTML = "above";
-            } else {
-                document.getElementById("top").innerHTML = "CoolStone Technologies";
-                document.getElementById('d').innerHTML = "on the left";
-            }
-        };
-
-        if (window.innerWidth < 800) {
-            document.getElementById("logo").style.display = "none";
-            document.getElementById("top").innerHTML = "CoolStone";
-            document.getElementById('d').innerHTML = "above";
-        }else{
-            document.getElementById("top").innerHTML = "CoolStone Technologies";
-            document.getElementById('d').innerHTML = "on the left";
-        }
-
-
-const opts = {
-method:"GET"
-}
-
-const loadServices = (newFirst, showDep) => {
-fetch('https://raw.githubusercontent.com/coolstone-tech/services/main/index.json', opts).then(r => r.json().then(data => {
-const d = newFirst ? data.reverse() : data
-d.forEach(service => {
-if(!p.has("type")) p.set("type", "app")
-if(service.deprecated && !showDep) return
-if(service.type != p.get("type")) return
-const button = document.createElement("button")
-button.innerHTML = service.name
-button.className = 'menub'
-button.onclick = () => set_service(service.name, service.about, service.url)
-document.getElementById('srv').innerHTML = p.get("type") == 'app' ? 'Apps' : p.get('type') == 'npm' ? "Packages" : p.get('type') == 'cli' ? "CLI Tools" : p.get('type') == 'website' ?  'Websites' : "Other Services"
-document.getElementById("services").appendChild(button)
-})
-}))
-if(p.has('type')) document.getElementById(p.get('type')).style.textDecoration = 'underline'
-}
-if(p.has("oldest")){
-loadServices(false,p.has('deprecated'))
-document.getElementById("sort").value = 'oldest'
-}else{
-loadServices(true,p.has('deprecated'))
-}
-
-if(p.has("q")){
-let url = `search/?q=${p.get("q")}`
-if(p.has('type')) url += `&type=${p.get("type")}`
-if(p.has("oldest")) url += '&oldest'
-location = url
-}
-
-const set_service = (name, about, url) => {
-document.getElementById('url').style.display = 'inline-block'
-document.getElementById("nm").innerHTML = name
-document.getElementById("ab").innerHTML = about
-document.getElementById("url").onclick = () => window.open(url)
-}
-
-    </script>
 </body>
 </html>
+<script>
+    const p = new URLSearchParams(location.search);
+    const opts = { method: "GET" };
+
+    const loadServices = (newFirst=true, showDep=false) => {
+        fetch('https://raw.githubusercontent.com/coolstone-tech/services/main/index.json', opts)
+            .then(r => r.json())
+            .then(data => {
+                const d = newFirst ? data.reverse() : data;
+                const servicesList = document.getElementById('services');
+                servicesList.innerHTML = ''; // Clear existing services
+
+                if (!p.has("type")) p.set("type", "app");
+                
+                d.forEach(service => {
+                    if (service.deprecated && !showDep) return;
+                    if (service.type != p.get("type")) return;
+                    
+                    const button = document.createElement("button");
+                    button.innerHTML = service.name;
+                    button.className = 'service-button';
+                    button.id = service.name;
+                    button.onclick = () => set_service(service.name, service.about, service.url);
+                    
+                    servicesList.appendChild(button);
+                });
+
+                document.getElementById('srv').innerHTML = getServiceTypeTitle(p.get("type"));
+            });
+
+        if (p.has('type')) {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.textDecoration = link.id === p.get('type') ? 'underline' : 'none';
+            });
+        }
+    };
+
+    const getServiceTypeTitle = (type) => {
+        switch (type) {
+            case 'app': return 'Apps & Games';
+            case 'npm': return 'npm Packages';
+            case 'cli': return 'CLI Tools';
+            case 'website': return 'Websites';
+            default: return 'Other Services';
+        }
+    };
+
+    let laatClicked = null;
+    const detailsSection = document.getElementById('service-details');
+
+
+    const set_service = (name, about, url) => {
+        if(name == laatClicked) {
+            laatClicked = null;
+            return document.getElementById('service-details').style.display = 'none';
+        }
+
+        if(document.getElementById(laatClicked)){
+            document.getElementById(laatClicked).style.display = 'block';
+        }
+
+        const button = event.target;
+        button.parentNode.insertBefore(detailsSection, button.nextSibling);
+
+        button.style.display = 'none';
+
+        document.getElementById('nm').innerHTML = `${name} <button id="hide" onclick="hideService()">&times;</button>`;
+        document.getElementById('ab').innerHTML = about;
+        document.getElementById('url').href = url;
+
+        detailsSection.style.display = 'block';
+
+        laatClicked = name;
+
+    };
+
+    const hideService = () => {
+        document.getElementById('service-details').style.display = 'none';
+        document.getElementById(laatClicked).style.display = 'block';
+        laatClicked = null;
+    };
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortSelect = document.getElementById('sort');
+        const showDeprecatedCheckbox = document.getElementById('show-deprecated');
+
+        const updateServices = () => {
+            const isNewest = sortSelect.value === 'newest';
+            const showDeprecated = showDeprecatedCheckbox.checked;
+            loadServices(isNewest, showDeprecated);
+        };
+
+        sortSelect.addEventListener('change', updateServices);
+        showDeprecatedCheckbox.addEventListener('change', updateServices);
+
+        // Set initial values
+        sortSelect.value = p.has("oldest") ? 'oldest' : 'newest';
+        showDeprecatedCheckbox.checked = p.has('deprecated');
+
+        updateServices();
+
+        if (p.has("q")) {
+            document.getElementById('search').value = p.get("q");
+            filter();
+        }
+    });
+
+    const set = (type) => {
+        p.set("type", type);
+        history.pushState({}, '', `?type=${type}`);
+        const newFirst = document.getElementById('sort').value === 'newest';
+        const showDep = document.getElementById('show-deprecated').checked;
+        loadServices(newFirst, showDep);
+    };
+
+    document.getElementById('show-deprecated').addEventListener('change', () => {
+        const newFirst = document.getElementById('sort').value === 'newest';
+        const showDep = document.getElementById('show-deprecated').checked;
+        loadServices(newFirst, showDep);
+    });
+    
+    document.getElementById('explore-services').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    const showFilter = () => {
+        const filter = document.getElementById('filter');
+        filter.style.display = filter.style.display === 'block' ? 'none' : 'block';
+    };
+
+    const filter = () => {
+        const search = document.getElementById('search').value;
+        const services = document.getElementById('services').children;
+        document.getElementById('service-details').style.display = 'none';
+        laatClicked = null;
+        document.getElementById('filter').style.display = 'none';
+        for (let i = 0; i < services.length; i++) {
+                if (services[i].innerHTML.toLowerCase().includes(search.toLowerCase())) {
+                    services[i].style.display = 'block';
+                } else {
+                    services[i].style.display = 'none';
+                }
+        }
+    };
+
+</script>
