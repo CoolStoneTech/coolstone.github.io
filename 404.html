@@ -1,38 +1,53 @@
-<style>
-*{
-font-family: Arial, Helvetica, sans-serif;
-color: black;
-}
-</style>
-<body style="overflow: hidden; background-color: gray;"><div id="err" style="z-index: 5; position: fixed; width: 100%; height:120vh;
-text-align: center; background: none; ">
-<div style="position: fixed; width: 50%;
-top: 50%;
-left: 50%;
--ms-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%); background-color: none;">
-<br><br><br>
-<img src="https://raw.githubusercontent.com/CoolStoneTech/coolstonetech.github.io/main/404.png" style="width: 90%;"><br><br>
-<a href="/">Go home</a> | <a onclick="history.back()" style="text-decoration: underline;cursor:pointer;">Go back</a>
-<br><br><br>
-</div>
-</div>
-</body>
+<head>
+    <title>404 - CoolStone Technologies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<script>
-document.oncontextmenu = (event) => {
-event.preventDefault()
-}
-
-</script>
 
 <style>
-img{
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+    *{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    }
+    </style>
+    <div>
+        <img src="https://raw.githubusercontent.com/CoolStoneTech/coolstonetech.github.io/main/404.png" style="width: 50%;"><br><br>
+        <a href="/">Go home</a> | <a onclick="history.back()" style="text-decoration: underline;cursor:pointer;">Go back</a>    
+    </div>
+    </body>
+    
+    <script>
+    document.oncontextmenu = (event) => {
+    event.preventDefault()
+    }
+    
+    </script>
+    
+    <style>
+    img{
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    
+    }
+    body{
+       background-color: #f0f0f0;
+    }
 
-}
-</style>
+    div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+  }
+
+    @media (prefers-color-scheme: dark) {
+        body{
+            background-color: #2c3e50;
+        }
+    }
+    </style>
