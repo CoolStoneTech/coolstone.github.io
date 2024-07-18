@@ -13,8 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <style>
-a{color: white;} 
-body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #333; overflow-x: hidden; overflow-y: hidden; color: white; } 
+body{font-family: 'Oxygen' !important; overflow: scroll !important; background-color: #f0f3f5; overflow-x: hidden; overflow-y: hidden; color: #34495e; } 
 
 
 .new{
@@ -34,7 +33,7 @@ table{
 width: 99% !important;
 }
 
-a{ text-decoration: none; border: 1px solid white; padding: 10px; padding-top: 5px; padding-bottom: 5px; border-radius:5px; float: right;  }
+table a { text-decoration: none; border: 1px solid black; color: black; padding: 10px; padding-top: 5px; padding-bottom: 5px; border-radius:5px; float: right;  }
 
 * { outline: none; }
 
@@ -45,7 +44,7 @@ tr a { margin-right: 5%; }
  input, select {
         background: none;
         border: none;
-        color: white;
+        color: black;
         padding: 5px 10px;
         text-align: center;
         text-decoration: none;
@@ -61,7 +60,7 @@ tr a { margin-right: 5%; }
       button, .button{
         background-color: #00b718;
         border: none;
-        color: white;
+        color: black !important;
         padding: 8px 15px;
         text-align: center;
         text-decoration: none;
@@ -93,10 +92,6 @@ border-bottom-right-radius: 10px;
 background: none;
 }
 
-.navbar a{
-  color: white;
-}
-
 .container {
   display: flex;
   align-items: center;
@@ -123,8 +118,7 @@ body, html {
   width: 99%;
   height: 110%;
   margin: auto;
-  border-top-left-radius: 10px;
-border-top-right-radius: 10px;
+  border-radius: 10px;
 background: none;
   height: 50%;
   -webkit-touch-callout: none;
@@ -137,6 +131,8 @@ background: none;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background: linear-gradient(135deg, #db8534, #cc532e);
+
 }
 
 .hero-text {
@@ -150,6 +146,7 @@ background: none;
 
 select{
 outline: none;
+background-color: #fff;
 }
 
 #sort_{
@@ -170,20 +167,71 @@ outline: none;
     -ms-user-select: none; 
         user-select: none;
 }
+
+@media (prefers-color-scheme: dark) {
+           body{
+                background-color: #2c3e50;  
+                color: white;            
+           }
+           table a{
+                color: white;
+                border-color: white;
+           }
+           select{
+                background-color: #34495e;
+                color: white;
+           }
+           nav * {
+            color: white !important;
+           }
+
+           input{
+            color: white;
+           }
+          }
+
+          footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+            border: none !important;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+   
+
 </style>
+
 <div class="hero-image">
 <div class="hero-text">
 <div class="container" style="margin: auto; text-align: center;">
-<img src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" class="image" style="width: 20%;"> <label id="cstech" style="font-size: xx-large; width: 75% !important;color: white;" class="text"></label>
+<img src="https://raw.githubusercontent.com/coolstone-tech/files/main/logos/current/logo.png" class="image" style="width: 20%;display: none;"> <label style="font-size: xx-large; width: 100% !important;color: white;" class="text">Search Services</label>
 </div>
 </div>
 </div>
-
+<br><br>
 <div id="sort_" style="text-align: center;">
   <label id="s_label">Search</label> <select id="searchin"><option value="name">names</option><option value="about">descriptions</option><option value="url">URLs</option></select> for  <input id="searchfor"></select>
 <button style="margin-left: 15px;" onclick="search()">Search</button> 
 </div>
-
+<br>
 <p style="text-align: center;">Sort by <select id="sort"> <option value="newest">newest first</option> <option value="oldest">oldest first</option> </select> and show <select id="show"> <option value="everything">everything</option> <option value="app">apps</option> <option value="cli">CLI tools</option> <option value="npm">npm packages</option> <option value="website">websites</option> <option value="other">other projects</option> </select></p>
 
 <div style="display: inline; text-align:center;">
@@ -191,26 +239,27 @@ outline: none;
 
 </table></div>
 <br><br>
-<footer>
 <label style="text-align: center !important; display:block;" class="nosel" for="null"> 
- <div style="display:none;" id="dep"><input type="checkbox" id="showd"> <label for="showd">Show deprecated</label><br><br> </div> 
-<br>
-<a target="_blank" href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-</footer><br>
+  <div style="display:none;" id="dep"><input type="checkbox" id="showd"> <label for="showd">Show deprecated</label><br><br> </div> 
+ <br>
+
+<footer>
+  <div class="container footer-content">
+      <div class="footer-links">
+          <a href="https://terms.coolstone.dev" target="_blank">Terms of Use</a>
+          <a href="https://terms.coolstone.dev/privacy" target="_blank">Privacy Policy</a>
+          <a href="/contact" target="_blank">Contact</a>
+          <a href="/" target="_blank">Home</a>
+      </div>
+      <div>
+          <a href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" target="_blank">
+              <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" alt="DMCA.com Protection Status" style="height: 24px;">
+          </a>
+</footer>
+
 <script>
 
 
-let i = 0;
-const txt = `Search Services`;
-const speed = 100; 
-document.getElementById("cstech").innerHTML = ''
-const write = () => {
-  if (i < txt.length) {
-    document.getElementById("cstech").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(write, speed);
-  }
-}
 
 const p = new URLSearchParams(location.search)
 
@@ -218,7 +267,8 @@ $(window).scroll(e => {
   const $el = $('#sort_')
   const isPositionFixed = ($el.css('position') == 'fixed')
   if ($(this).scrollTop() > 530 && !isPositionFixed){ 
-    $el.css({'position': 'fixed', 'top': '0px', "background-color":"#979797"})
+    const bg = window.matchMedia('(prefers-color-scheme: dark)').matches ? '#34495e' : '#fff'
+    $el.css({'position': 'fixed', 'top': '0px', "background-color": bg})
     document.getElementById('s_label').innerHTML = 'Searching'
   }
   if ($(this).scrollTop() < 200 && isPositionFixed){
@@ -279,6 +329,4 @@ search(document.getElementById("showd").checked)
 }
 
 document.addEventListener("keypress", event => {if (event.key === "Enter") {event.preventDefault(); search()}})
-
-write()
 </script>
