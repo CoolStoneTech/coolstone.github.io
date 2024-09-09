@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoolStone Technologies</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
@@ -359,6 +360,26 @@
                     color: white;
                 }
         }
+
+        #socials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#socials a{
+  font-size: 20px;
+  color: white;
+}
+
+#socials i {
+  transition: transform 0.3s ease;
+}
+
+#socials i:hover{
+ transform: scale(1.2);
+}
     </style>
 </head>
 <body>
@@ -447,15 +468,21 @@
                 <a href="/contact" target="_blank">Contact</a>
                 <a href="/search" target="_blank">Advanced Search</a>
             </div>
-            <div>
-                <a href="https://www.dmca.com/Protection/Status.aspx?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" target="_blank">
-                    <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=6fe6dda3-54a0-4f2a-b594-9ee5d22e0868" alt="DMCA.com Protection Status" style="height: 24px;">
-                </a>
-                <div id="wcb" class="carbonbadge wcb-d"></div>
-                <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
-        </div>
+   
+        <div id="socials">
+            <a target="_blank" href="https://instagram.com/coolstonetech"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.youtube.com/@coolstonetech"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="https://github.com/coolstone-tech"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://www.threads.net/@coolstonetech"><i class="fab fa-threads"></i></a>
+            <a target="_blank" href="https://discord.gg/nzTmfZ8"><i class="fab fa-discord"></i></a>
+            <a target="_blank" href="https://patreon.com/coolstone"><i class="fab fa-patreon"></i></a>
+            <a target="_blank" href="https://mastodon.social/@coolstonetech"><i class="fab fa-mastodon"></i></a>
+            <a target="_blank" href="https://bsky.app/coolstone"><i class="fa-brands fa-bluesky"></i></a>
+            <a target="_blank" href="https://solo.to/coolstone"><i class="fa fa-link"></i></a>
+          </div>
     </footer>
 
+      
 </body>
 </html>
 <script>
